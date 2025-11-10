@@ -33,29 +33,14 @@ jobs:
             exit 1;
           fi
 
-          archs="["aarch64","amd64","armhf","armv7","i386"]"
+          archs="["aarch64","amd64"]"
           if [[ "${{ steps.information.outputs.architectures }}" != "${archs}" ]]; then
             echo "::error ::'architectures' does not have the expected value"
             exit 1;
           fi
 
-          if [[ "${{ steps.information.outputs.armhf }}" != "true" ]]; then
-            echo "::error ::'armhf' does not have the expected value"
-            exit 1;
-          fi
-
           if [[ "${{ steps.information.outputs.build }}" != "test/build.json" ]]; then
             echo "::error ::'build' does not have the expected value"
-            exit 1;
-          fi
-
-          if [[ "${{ steps.information.outputs.codenotary_base_image }}" != "base_image@example.com" ]]; then
-            echo "::error ::'codenotary_base_image' does not have the expected value"
-            exit 1;
-          fi
-
-          if [[ "${{ steps.information.outputs.codenotary_signer }}" != "signer@example.com" ]]; then
-            echo "::error ::'codenotary_signer' does not have the expected value"
             exit 1;
           fi
 
@@ -66,11 +51,6 @@ jobs:
 
           if [[ "${{ steps.information.outputs.description }}" != "This is a test add-on" ]]; then
             echo "::error ::'description' does not have the expected value"
-            exit 1;
-          fi
-
-          if [[ "${{ steps.information.outputs.i386 }}" != "true" ]]; then
-            echo "::error ::'i386' does not have the expected value"
             exit 1;
           fi
 
